@@ -75,6 +75,9 @@ public struct SVBarChart: View {
     /// Optional expanded labels shown when a bar is selected.
     let expandedLabels: [String]?
 
+    /// Optional title displayed above the chart.
+    let title: String?
+
     /// Optional formatter for displaying values in the detail view.
     let valueFormatter: SVValueFormatter?
 
@@ -121,6 +124,7 @@ public struct SVBarChart: View {
         labels: [String]? = nil,
         expandedLabels: [String]? = nil,
         valueFormatter: SVValueFormatter? = nil,
+        title: String? = nil,
         style: SVBarChartStyle = .default
     ) {
         self.data = data
@@ -128,6 +132,7 @@ public struct SVBarChart: View {
         self.labels = labels
         self.expandedLabels = expandedLabels
         self.valueFormatter = valueFormatter
+        self.title = title
         self.style = style
     }
 
@@ -157,6 +162,7 @@ public struct SVBarChart: View {
         expandedLabels: [String]? = nil,
         color: Color = .blue,
         valueFormatter: SVValueFormatter? = nil,
+        title: String? = nil,
         style: SVBarChartStyle = .default
     ) {
         self.data = values.map { [$0] }
@@ -164,6 +170,7 @@ public struct SVBarChart: View {
         self.labels = labels
         self.expandedLabels = expandedLabels
         self.valueFormatter = valueFormatter
+        self.title = title
         // Override to hide legend for simple charts
         var modifiedStyle = style
         modifiedStyle.showLegend = false
@@ -174,6 +181,13 @@ public struct SVBarChart: View {
 
     public var body: some View {
         VStack {
+            if let title {
+                Text(title)
+                    .font(style.titleFont)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(.secondary)
+            }
+
             HStack(alignment: .top, spacing: 8) {
                 if style.showYAxis {
                     yAxisLabels

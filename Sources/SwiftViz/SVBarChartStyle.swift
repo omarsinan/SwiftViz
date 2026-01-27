@@ -53,6 +53,9 @@ public struct SVBarChartStyle: Sendable {
     /// The font for legend items.
     public var legendFont: Font
 
+    /// The font for the chart title.
+    public var titleFont: Font
+
     /// The animation used for bar selection transitions.
     public var selectionAnimation: Animation
 
@@ -78,9 +81,10 @@ public struct SVBarChartStyle: Sendable {
         yAxisFont: Font = .body.bold(),
         xAxisFont: Font = .body.bold(),
         legendFont: Font = .system(size: 14).bold(),
+        titleFont: Font = .title3.bold(),
+        selectionAnimation: Animation = .spring(duration: 0.25),
         showYAxis: Bool = true,
         showXAxis: Bool = true,
-        selectionAnimation: Animation = .spring(duration: 0.25),
         isInteractive: Bool = true
     ) {
         self.chartHeight = chartHeight
@@ -94,9 +98,10 @@ public struct SVBarChartStyle: Sendable {
         self.yAxisFont = yAxisFont
         self.xAxisFont = xAxisFont
         self.legendFont = legendFont
+        self.titleFont = titleFont
+        self.selectionAnimation = selectionAnimation
         self.showYAxis = showYAxis
         self.showXAxis = showXAxis
-        self.selectionAnimation = selectionAnimation
         self.isInteractive = isInteractive
     }
 
