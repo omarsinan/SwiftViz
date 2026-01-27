@@ -122,7 +122,7 @@ For basic bar charts with a single data series:
 ```swift
 SVBarChart(
     values: [Double],                   // Required: Array of values (one per bar)
-    labels: [String],                   // Required: X-axis labels
+    labels: [String]?,                  // Optional: X-axis labels
     expandedLabels: [String]?,          // Optional: Full labels for selection
     color: Color,                       // Optional: Bar color (default: .blue)
     valueFormatter: SVValueFormatter?,  // Optional: Custom value formatting
@@ -130,14 +130,14 @@ SVBarChart(
 )
 ```
 
-| Parameter        | Type                | Default    | Description                                                 |
-| ---------------- | ------------------- | ---------- | ----------------------------------------------------------- |
-| `values`         | `[Double]`          |            | An array of values, one per bar.                            |
-| `labels`         | `[String]`          |            | Labels displayed below each bar. Count must match `values`. |
-| `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown when a bar is selected.        |
-| `color`          | `Color`             | `.blue`    | The color for all bars.                                     |
-| `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view.       |
-| `style`          | `SVBarChartStyle`   | `.default` | Styling configuration. Legend is automatically hidden.      |
+| Parameter        | Type                | Default    | Description                                                                                                          |
+| ---------------- | ------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------- |
+| `values`         | `[Double]`          |            | An array of values, one per bar.                                                                                     |
+| `labels`         | `[String]?`         | `nil`      | Optional labels displayed below each bar on the x-axis. Count must match the number of bars if provided.             |
+| `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided.      |
+| `color`          | `Color`             | `.blue`    | The color for all bars.                                                                                              |
+| `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view (e.g., for currencies).                                         |
+| `style`          | `SVBarChartStyle`   | `.default` | Configuration object for customizing the chart appearance. Legend is automatically hidden for simple charts.          |
 
 #### Stacked Bar Chart (With Categories)
 
@@ -147,21 +147,21 @@ For charts with multiple data categories per bar:
 SVBarChart(
     data: [[Double]],                   // Required: 2D array of values
     categories: [SVCategory],           // Required: Category definitions
-    labels: [String],                   // Required: X-axis labels
+    labels: [String]?,                  // Optional: X-axis labels
     expandedLabels: [String]?,          // Optional: Full labels for selection
     valueFormatter: SVValueFormatter?,  // Optional: Custom value formatting
     style: SVBarChartStyle              // Optional: Styling configuration
 )
 ```
 
-| Parameter        | Type                | Description                                                                                                                                                                                                       |
-| ---------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data`           | `[[Double]]`        | A 2D array where each inner array contains values for each category in a single bar. The outer array represents bars (left to right), and inner arrays represent category values (must match `categories` order). |
-| `categories`     | `[SVCategory]`      | Array of categories defining the data series. Each category has a name and color.                                                                                                                                 |
-| `labels`         | `[String]`          | Labels displayed below each bar on the x-axis. Count must match the number of bars.                                                                                                                               |
-| `expandedLabels` | `[String]?`         | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided.                                                                                                   |
-| `valueFormatter` | `SVValueFormatter?` | Optional closure to format values in the detail view (e.g., for currencies).                                                                                                                                      |
-| `style`          | `SVBarChartStyle`   | Configuration object for customizing the chart appearance. Defaults to `SVBarChartStyle.default`.                                                                                                                 |
+| Parameter        | Type                | Default    | Description                                                                                                                                                                                                       |
+| ---------------- | ------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data`           | `[[Double]]`        |            | A 2D array where each inner array contains values for each category in a single bar. The outer array represents bars (left to right), and inner arrays represent category values (must match `categories` order). |
+| `categories`     | `[SVCategory]`      |            | Array of categories defining the data series. Each category has a name and color.                                                                                                                                 |
+| `labels`         | `[String]?`         | `nil`      | Optional labels displayed below each bar on the x-axis. Count must match the number of bars if provided.                                                                                                          |
+| `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided.                                                                                                   |
+| `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view (e.g., for currencies).                                                                                                                                      |
+| `style`          | `SVBarChartStyle`   | `.default` | Configuration object for customizing the chart appearance.                                                                                                                                                        |
 
 ### SVCategory
 
