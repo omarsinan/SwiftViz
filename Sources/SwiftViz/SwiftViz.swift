@@ -175,7 +175,9 @@ public struct SVBarChart: View {
     public var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 8) {
-                yAxisLabels
+                if style.showYAxis {
+                    yAxisLabels
+                }
 
                 VStack {
                     if data.isEmpty {
@@ -186,7 +188,7 @@ public struct SVBarChart: View {
                             .overlay(averageLineOverlay)
                             .allowsHitTesting(!isAnimating)
 
-                        if let labels, !labels.isEmpty {
+                        if style.showXAxis, let labels, !labels.isEmpty {
                             xAxisLabels
                         }
                     }

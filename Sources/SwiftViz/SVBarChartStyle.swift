@@ -56,6 +56,12 @@ public struct SVBarChartStyle: Sendable {
     /// The animation used for bar selection transitions.
     public var selectionAnimation: Animation
 
+    /// Whether to show the y-axis labels.
+    public var showYAxis: Bool
+
+    /// Whether to show the x-axis labels.
+    public var showXAxis: Bool
+
     /// Whether bars are interactive (tappable to show detail view).
     public var isInteractive: Bool
 
@@ -72,6 +78,8 @@ public struct SVBarChartStyle: Sendable {
         yAxisFont: Font = .body.bold(),
         xAxisFont: Font = .body.bold(),
         legendFont: Font = .system(size: 14).bold(),
+        showYAxis: Bool = true,
+        showXAxis: Bool = true,
         selectionAnimation: Animation = .spring(duration: 0.25),
         isInteractive: Bool = true
     ) {
@@ -86,6 +94,8 @@ public struct SVBarChartStyle: Sendable {
         self.yAxisFont = yAxisFont
         self.xAxisFont = xAxisFont
         self.legendFont = legendFont
+        self.showYAxis = showYAxis
+        self.showXAxis = showXAxis
         self.selectionAnimation = selectionAnimation
         self.isInteractive = isInteractive
     }
