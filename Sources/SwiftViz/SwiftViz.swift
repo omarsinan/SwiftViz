@@ -299,7 +299,7 @@ public struct SVBarChart: View {
                             }
                         }
                     )
-                    .transition(.scale(scale: 0, anchor: .trailing))
+                    .transition(.scale(scale: 0.001, anchor: .trailing))
                 } else {
                     // All bars
                     ForEach(0..<columns, id: \.self) { i in
