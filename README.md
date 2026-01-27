@@ -1,13 +1,19 @@
 # SwiftViz
 
-A lightweight, interactive charting library for SwiftUI with beautiful animations and customizable styling.
+<div align="center">
+<img src="./Assets/Images/logo.png" alt="Logo" width=300 /><br />
+    <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0">
+    <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" alt="iOS 17.0+">
+    <img src="https://img.shields.io/badge/macOS-14.0+-blue.svg" alt="macOS 14.0+">
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0">
-  <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" alt="iOS 17.0+">
-  <img src="https://img.shields.io/badge/macOS-14.0+-blue.svg" alt="macOS 14.0+">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
-</p>
+<br />A lightweight, interactive charting library for SwiftUI with beautiful animations and customizable styling.<br /><br />
+
+</div>
+
+<div align="center">
+    <img src="./Assets/Images/demo.gif" alt="Demo of SwiftViz">
+</div>
 
 ## Features
 
@@ -126,18 +132,20 @@ SVBarChart(
     expandedLabels: [String]?,          // Optional: Full labels for selection
     color: Color,                       // Optional: Bar color (default: .blue)
     valueFormatter: SVValueFormatter?,  // Optional: Custom value formatting
+    title: String?,                     // Optional: Chart title
     style: SVBarChartStyle              // Optional: Styling configuration
 )
 ```
 
-| Parameter        | Type                | Default    | Description                                                                                                          |
-| ---------------- | ------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| `values`         | `[Double]`          |            | An array of values, one per bar.                                                                                     |
-| `labels`         | `[String]?`         | `nil`      | Optional labels displayed below each bar on the x-axis. Count must match the number of bars if provided.             |
-| `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided.      |
-| `color`          | `Color`             | `.blue`    | The color for all bars.                                                                                              |
-| `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view (e.g., for currencies).                                         |
-| `style`          | `SVBarChartStyle`   | `.default` | Configuration object for customizing the chart appearance. Legend is automatically hidden for simple charts.          |
+| Parameter        | Type                | Default    | Description                                                                                                     |
+| ---------------- | ------------------- | ---------- | --------------------------------------------------------------------------------------------------------------- |
+| `values`         | `[Double]`          |            | An array of values, one per bar.                                                                                |
+| `labels`         | `[String]?`         | `nil`      | Optional labels displayed below each bar on the x-axis. Count must match the number of bars if provided.        |
+| `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided. |
+| `color`          | `Color`             | `.blue`    | The color for all bars.                                                                                         |
+| `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view (e.g., for currencies).                                    |
+| `title`          | `String?`           | `nil`      | Optional title displayed above the chart.                                                                       |
+| `style`          | `SVBarChartStyle`   | `.default` | Configuration object for customizing the chart appearance. Legend is automatically hidden for simple charts.    |
 
 #### Stacked Bar Chart (With Categories)
 
@@ -150,6 +158,7 @@ SVBarChart(
     labels: [String]?,                  // Optional: X-axis labels
     expandedLabels: [String]?,          // Optional: Full labels for selection
     valueFormatter: SVValueFormatter?,  // Optional: Custom value formatting
+    title: String?,                     // Optional: Chart title
     style: SVBarChartStyle              // Optional: Styling configuration
 )
 ```
@@ -161,6 +170,7 @@ SVBarChart(
 | `labels`         | `[String]?`         | `nil`      | Optional labels displayed below each bar on the x-axis. Count must match the number of bars if provided.                                                                                                          |
 | `expandedLabels` | `[String]?`         | `nil`      | Optional longer labels shown in the detail view when a bar is selected. Falls back to `labels` if not provided.                                                                                                   |
 | `valueFormatter` | `SVValueFormatter?` | `nil`      | Optional closure to format values in the detail view (e.g., for currencies).                                                                                                                                      |
+| `title`          | `String?`           | `nil`      | Optional title displayed above the chart.                                                                                                                                                                         |
 | `style`          | `SVBarChartStyle`   | `.default` | Configuration object for customizing the chart appearance.                                                                                                                                                        |
 
 ### SVCategory
@@ -216,6 +226,9 @@ SVBarChart(
 | `yAxisFont`          | `Font`      | `.body.bold()`             | The font used for y-axis labels                            |
 | `xAxisFont`          | `Font`      | `.body.bold()`             | The font used for x-axis labels                            |
 | `legendFont`         | `Font`      | `.system(size: 14).bold()` | The font used for legend items                             |
+| `titleFont`          | `Font`      | `.title3.bold()`           | The font used for the chart title                          |
+| `showYAxis`          | `Bool`      | `true`                     | Whether to show the y-axis labels                          |
+| `showXAxis`          | `Bool`      | `true`                     | Whether to show the x-axis labels                          |
 | `selectionAnimation` | `Animation` | `.spring(duration: 0.25)`  | The animation used for bar selection transitions           |
 | `isInteractive`      | `Bool`      | `true`                     | Whether bars are tappable to show the detail view          |
 
@@ -280,6 +293,8 @@ SVBarChart(
 )
 ```
 
+![Example of a simple bar chart](./Assets/Images/example-1.png)
+
 ### Simple Bar Chart with Expanded Labels
 
 ```swift
@@ -291,6 +306,8 @@ SVBarChart(
     style: SVBarChartStyle(chartHeight: 180)
 )
 ```
+
+![Example of a simple bar chart with expanded labels](./Assets/Images/example-2.png)
 
 ### Stacked Bar Chart
 
@@ -313,6 +330,8 @@ SVBarChart(
     labels: ["Q1", "Q2", "Q3", "Q4"]
 )
 ```
+
+![Example of a stacked bar chart](./Assets/Images/example-3.png)
 
 ### Weekly Spending with Expanded Labels
 
@@ -346,6 +365,8 @@ SVBarChart(
 )
 ```
 
+![Example of weekly spending bar chart](./Assets/Images/example-4.png)
+
 ### Custom Styled Chart
 
 ```swift
@@ -368,6 +389,8 @@ SVBarChart(
 )
 ```
 
+![Example of a custom styled chart](./Assets/Images/example-5.png)
+
 ## Data Format
 
 The `data` parameter is a 2D array structured as follows:
@@ -388,6 +411,13 @@ let data: [[Double]] = [
 ```
 
 The order of values in each inner array must match the order of categories.
+
+## Roadmap
+
+- [x] Bar charts
+- [ ] Pie charts
+- [ ] Donut charts
+- [ ] Line charts
 
 ## License
 
