@@ -314,6 +314,7 @@ public struct SVBarChart: View {
                             index: i
                         )
                         .onTapGesture {
+                            guard style.isInteractive else { return }
                             withAnimation(style.selectionAnimation) {
                                 isAnimating = true
                                 selectedBar = i

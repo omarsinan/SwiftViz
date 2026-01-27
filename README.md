@@ -217,6 +217,7 @@ SVBarChart(
 | `xAxisFont`          | `Font`      | `.body.bold()`             | The font used for x-axis labels                            |
 | `legendFont`         | `Font`      | `.system(size: 14).bold()` | The font used for legend items                             |
 | `selectionAnimation` | `Animation` | `.spring(duration: 0.25)`  | The animation used for bar selection transitions           |
+| `isInteractive`      | `Bool`      | `true`                     | Whether bars are tappable to show the detail view          |
 
 ### Value Formatting
 
