@@ -2,9 +2,10 @@
 
 <div align="center">
 <img src="./Assets/Images/logo.png" alt="Logo" width=300 /><br />
-    <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0">
-    <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" alt="iOS 17.0+">
-    <img src="https://img.shields.io/badge/macOS-14.0+-blue.svg" alt="macOS 14.0+">
+    <a href="https://swiftpackageindex.com/omarsinan/SwiftViz">
+        <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fomarsinan%2FSwiftViz%2Fbadge%3Ftype%3Dswift-versions" alt="Swift version support" />
+        <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fomarsinan%2FSwiftViz%2Fbadge%3Ftype%3Dplatforms" alt="Platforms support" />
+    </a>
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License">
 
 <br />A lightweight, interactive charting library for SwiftUI with beautiful animations and customizable styling.<br /><br />
@@ -54,6 +55,10 @@ Then add the dependency to your target:
     dependencies: ["SwiftViz"]
 )
 ```
+
+## Documentation
+
+Full DocC documentation is available [here](https://swiftpackageindex.com/omarsinan/SwiftViz/main/documentation/swiftviz).
 
 ## Quick Start
 
@@ -414,7 +419,7 @@ The order of values in each inner array must match the order of categories.
 
 ## Roadmap
 
-- [x] Bar charts
+- [x] ~~Bar charts~~
 - [ ] Pie charts
 - [ ] Donut charts
 - [ ] Line charts
