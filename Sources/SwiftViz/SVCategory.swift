@@ -18,7 +18,7 @@ import SwiftUI
 /// ]
 /// ```
 public struct SVCategory: Identifiable, Hashable, Sendable {
-    public let id: UUID
+    public var id: String { name }
     public let name: String
     public let color: Color
 
@@ -27,7 +27,6 @@ public struct SVCategory: Identifiable, Hashable, Sendable {
     ///   - name: The display name for this category (shown in legend and detail view)
     ///   - color: The color used for this category's bar segments
     public init(name: String, color: Color) {
-        self.id = UUID()
         self.name = name
         self.color = color
     }
@@ -37,16 +36,16 @@ public struct SVCategory: Identifiable, Hashable, Sendable {
     ///   - name: The display name for this category
     ///   - colorHex: A hex color string (e.g., "#FF5733" or "FF5733")
     public init(name: String, colorHex: String) {
-        self.id = UUID()
         self.name = name
         self.color = Color(hex: colorHex)
     }
 
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(color)
     }
 
     public static func == (lhs: SVCategory, rhs: SVCategory) -> Bool {
-        lhs.id == rhs.id
+        lhs.name == rhs.name && lhs.color == rhs.color
     }
 }

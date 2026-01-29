@@ -25,6 +25,10 @@
 - **Legend Support** - Automatic category legend with color indicators
 - **Pure SwiftUI** - No external dependencies, works seamlessly with SwiftUI's animation system
 
+### Why SwiftViz?
+
+SwiftViz provides an opinionated, interactive charting experience with built-in detail views, making it ideal when you want a polished UX without building custom gesture handling and overlays. Swift Charts does offer more flexibility and chart types, but SwiftViz gives you a specific look and feel out of the box.
+
 ## Installation
 
 Add SwiftViz to your project using Xcode:
